@@ -1,6 +1,6 @@
 export const SITE_NAME = "AniHeist";
-export const SITE_DOMAIN = "yourdomain.com";
-export const SITE_URL = "https://yourdomain.com";
+export const SITE_DOMAIN = "aniheist.com";
+export const SITE_URL = "https://aniheist.com";
 export const API_BASE_URL = "https://api.yourdomain.com";
 export const BLOG_URL = "https://blog.yourdomain.com";
 export const DEV_URL = "https://zenxhamza.xyz";

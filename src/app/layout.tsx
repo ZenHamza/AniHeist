@@ -30,15 +30,15 @@ export const metadata: Metadata = {
     "subbed anime",
     "AniHeist",
   ],
-  metadataBase: new URL("https://yourdomain.com"),
+  metadataBase: new URL("https://aniheist.com"),
   openGraph: {
     title: "AniHeist - Watch Anime Online Free",
     description: "Stream anime in HD quality with English subtitles.",
-    url: "https://yourdomain.com",
+    url: "https://aniheist.com",
     siteName: "AniHeist",
     images: [
       {
-        url: "https://yourdomain.com/og-image.png",
+        url: "https://aniheist.com/og-image.png",
         width: 1200,
         height: 630,
       },
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "AniHeist - Watch Anime Online Free",
-    images: ["https://yourdomain.com/og-image.png"],
+    images: ["https://aniheist.com/og-image.png"],
   },
   robots: {
     index: true,

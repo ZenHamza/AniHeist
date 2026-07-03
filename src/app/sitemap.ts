@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 
-const BASE = "https://yourdomain.com";
+const BASE = "https://aniheist.com";
 const API = process.env.API_INTERNAL_URL || "https://api.yourdomain.com";
 
 const GENRES = ["Action","Adventure","Comedy","Drama","Ecchi","Fantasy","Horror","Mahou Shoujo","Mecha","Music","Mystery","Psychological","Romance","Sci-Fi","Slice of Life","Sports","Supernatural","Thriller"];

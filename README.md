@@ -18,8 +18,8 @@
 </div>
 
 <p align="center">
-  <a href="https://yourdomain.com">
-    <img src="https://img.shields.io/badge/LIVE-yourdomain.com-38bdf8?style=for-the-badge&logo=vercel&logoColor=white" alt="Website"/>
+  <a href="https://aniheist.com">
+    <img src="https://img.shields.io/badge/LIVE-aniheist.com-38bdf8?style=for-the-badge&logo=vercel&logoColor=white" alt="Website"/>
   </a>
   <a href="https://nextjs.org">
     <img src="https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js"/>
@@ -193,7 +193,7 @@
 ### 🌐 Live Demo
 
 <p align="center">
-  <a href="https://yourdomain.com">
+  <a href="https://aniheist.com">
     <img src="https://img.shields.io/badge/🌐_Visit-AniHeist.com-38bdf8?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Visit AniHeist"/>
   </a>
   <a href="https://github.com/ZenHamza/AniHeist">
@@ -392,7 +392,7 @@ docker run -d \
   -p 3000:3000 \
   -e API_INTERNAL_URL=https://api.yourdomain.com \
   -e NEXTAUTH_SECRET=your-secret \
-  -e NEXTAUTH_URL=https://yourdomain.com \
+  -e NEXTAUTH_URL=https://aniheist.com \
   aniheist-frontend:latest
 ```
 
@@ -528,7 +528,7 @@ git push origin feat/amazing-feature
   </pre>
   <p>
     <sub>
-      <a href="https://yourdomain.com">aniheist.com</a> •
+      <a href="https://aniheist.com">aniheist.com</a> •
       <a href="https://github.com/ZenHamza/AniHeist">GitHub</a> •
       <a href="https://zenxhamza.xyz">ZenxHamza</a>
     </sub>

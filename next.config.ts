@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "**.yourdomain.com",
+        hostname: "**.aniheist.com",
       },
     ],
     formats: ["image/avif", "image/webp"],
