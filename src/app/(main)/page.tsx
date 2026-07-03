@@ -290,9 +290,9 @@ export default function HomePage() {
               <div>
                 <h2 className="text-base font-black text-white/80 uppercase tracking-[0.1em] mb-4">Upcoming</h2>
                 <div className="bg-[#0d0d12] ring-1 ring-white/[0.04] rounded-xl p-3 space-y-2">
-                  {up.slice(0, showMoreUpcoming ? up.length : 4).map(a=><WideEntryCard key={a.id} anime={a} />)}
+                  {up.slice(0, showMoreUpcoming ? up.length : 5).map(a=><WideEntryCard key={a.id} anime={a} />)}
                   {up.length>4&&(
-                    <button onClick={()=>setShowMoreUpcoming(!showMoreUpcoming)} className="w-full flex items-center justify-center gap-1 py-1.5 text-[10px] text-white/25 hover:text-white/60 transition-colors font-medium">{showMoreUpcoming?"Show Less":`Show ${up.length-4} More`}<FaChevronDown size={10} className={`transition-transform ${showMoreUpcoming?"rotate-180":""}`}/></button>
+                    <button onClick={()=>setShowMoreUpcoming(!showMoreUpcoming)} className="w-full flex items-center justify-center gap-1 py-1.5 text-[10px] text-white/25 hover:text-white/60 transition-colors font-medium">{showMoreUpcoming?"Show Less":`Show ${up.length-5} More`}<FaChevronDown size={10} className={`transition-transform ${showMoreUpcoming?"rotate-180":""}`}/></button>
                   )}
                 </div>
               </div>
