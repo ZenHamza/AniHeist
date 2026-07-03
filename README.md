@@ -18,8 +18,8 @@
 </div>
 
 <p align="center">
-  <a href="https://aniheist.com">
-    <img src="https://img.shields.io/badge/LIVE-aniheist.com-38bdf8?style=for-the-badge&logo=vercel&logoColor=white" alt="Website"/>
+  <a href="https://yourdomain.com">
+    <img src="https://img.shields.io/badge/LIVE-yourdomain.com-38bdf8?style=for-the-badge&logo=vercel&logoColor=white" alt="Website"/>
   </a>
   <a href="https://nextjs.org">
     <img src="https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js"/>
@@ -182,7 +182,7 @@
     </tr>
     <tr>
       <td colspan="3" align="center">
-        <i>🚧 Screenshots coming soon — check out <a href="https://aniheist.com">aniheist.com</a> for the live experience!</i>
+        <i>🚧 Screenshots coming soon — check out the live site for the experience!</i>
       </td>
     </tr>
   </table>
@@ -193,7 +193,7 @@
 ### 🌐 Live Demo
 
 <p align="center">
-  <a href="https://aniheist.com">
+  <a href="https://yourdomain.com">
     <img src="https://img.shields.io/badge/🌐_Visit-AniHeist.com-38bdf8?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Visit AniHeist"/>
   </a>
   <a href="https://github.com/ZenHamza/AniHeist">
@@ -266,8 +266,8 @@ npm start
 
 ```env
 # Core
-API_INTERNAL_URL=https://api.aniheist.com
-NEXT_PUBLIC_API_URL=https://api.aniheist.com
+API_INTERNAL_URL=https://api.yourdomain.com
+NEXT_PUBLIC_API_URL=https://api.yourdomain.com
 
 # Auth (NextAuth.js)
 NEXTAUTH_SECRET=your-secret-here
@@ -278,7 +278,7 @@ DISCORD_CLIENT_ID=your-discord-id
 DISCORD_CLIENT_SECRET=your-discord-secret
 
 # Analytics
-NEXT_PUBLIC_GA_ID=G-PN045E6DYT
+NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
 
 # Disk Cache
 DISK_CACHE_DIR=.next/disk-cache
@@ -390,9 +390,9 @@ docker compose -f docker-compose.aniheist.yml up -d --build frontend
 docker run -d \
   --name aniheist-frontend \
   -p 3000:3000 \
-  -e API_INTERNAL_URL=https://api.aniheist.com \
+  -e API_INTERNAL_URL=https://api.yourdomain.com \
   -e NEXTAUTH_SECRET=your-secret \
-  -e NEXTAUTH_URL=https://aniheist.com \
+  -e NEXTAUTH_URL=https://yourdomain.com \
   aniheist-frontend:latest
 ```
 
@@ -528,7 +528,7 @@ git push origin feat/amazing-feature
   </pre>
   <p>
     <sub>
-      <a href="https://aniheist.com">aniheist.com</a> •
+      <a href="https://yourdomain.com">aniheist.com</a> •
       <a href="https://github.com/ZenHamza/AniHeist">GitHub</a> •
       <a href="https://zenxhamza.xyz">ZenxHamza</a>
     </sub>

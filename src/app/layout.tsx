@@ -30,15 +30,15 @@ export const metadata: Metadata = {
     "subbed anime",
     "AniHeist",
   ],
-  metadataBase: new URL("https://aniheist.com"),
+  metadataBase: new URL("https://yourdomain.com"),
   openGraph: {
     title: "AniHeist - Watch Anime Online Free",
     description: "Stream anime in HD quality with English subtitles.",
-    url: "https://aniheist.com",
+    url: "https://yourdomain.com",
     siteName: "AniHeist",
     images: [
       {
-        url: "https://aniheist.com/og-image.png",
+        url: "https://yourdomain.com/og-image.png",
         width: 1200,
         height: 630,
       },
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "AniHeist - Watch Anime Online Free",
-    images: ["https://aniheist.com/og-image.png"],
+    images: ["https://yourdomain.com/og-image.png"],
   },
   robots: {
     index: true,
@@ -76,14 +76,14 @@ export default function RootLayout({
     >
       <head>
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-PN045E6DYT"
+          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
           {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-PN045E6DYT');`}
+gtag('config', 'G-XXXXXXXXXX');`}
         </Script>
       </head>
       <body className="min-h-full bg-background text-foreground">

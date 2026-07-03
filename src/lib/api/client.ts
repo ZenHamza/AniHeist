@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "https://api.aniheist.com";
+const API_BASE_URL = "https://api.yourdomain.com";
 
 export const serverApi = axios.create({
   baseURL: API_BASE_URL,

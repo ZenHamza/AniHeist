@@ -9,7 +9,7 @@ interface AnimePageProps {
 export async function generateMetadata({ params }: AnimePageProps): Promise<Metadata> {
   const { id } = await params;
   try {
-    const apiUrl = process.env.API_INTERNAL_URL || "https://api.aniheist.com";
+    const apiUrl = process.env.API_INTERNAL_URL || "https://api.yourdomain.com";
     const res = await fetch(`${apiUrl}/api/anime/${id}`, { signal: AbortSignal.timeout(8000) });
     const json = await res.json();
     if (json.status === "success") {

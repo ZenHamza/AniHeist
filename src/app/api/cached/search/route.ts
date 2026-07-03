@@ -14,7 +14,7 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    const apiUrl = process.env.API_INTERNAL_URL || "https://api.aniheist.com";
+    const apiUrl = process.env.API_INTERNAL_URL || "https://api.yourdomain.com";
     const res = await fetch(`${apiUrl}/api/search?q=${encodeURIComponent(q)}`, {
       signal: AbortSignal.timeout(10000),
     });

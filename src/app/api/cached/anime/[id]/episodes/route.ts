@@ -16,7 +16,7 @@ export async function GET(
   }
 
   try {
-    const apiUrl = process.env.API_INTERNAL_URL || "https://api.aniheist.com";
+    const apiUrl = process.env.API_INTERNAL_URL || "https://api.yourdomain.com";
     const res = await fetch(`${apiUrl}/api/anime/${id}/episodes`, {
       signal: AbortSignal.timeout(10000),
     });

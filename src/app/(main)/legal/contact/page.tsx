@@ -104,7 +104,7 @@ export default function ContactPage() {
 
       <div className="space-y-4 text-sm leading-relaxed text-text-secondary">
         <h2 className="text-xl font-semibold text-accent">Other Ways to Reach Us</h2>
-        <p>Email: <a href="mailto:support@aniheist.com" className="text-accent hover:underline">support@aniheist.com</a></p>
+        <p>Email: <a href="mailto:support@yourdomain.com" className="text-accent hover:underline">support@yourdomain.com</a></p>
         <p>For DMCA notices, see our <a href="/legal/dmca" className="text-accent hover:underline">DMCA page</a>.</p>
         <p>Response time: 24-48 hours during business days.</p>
 

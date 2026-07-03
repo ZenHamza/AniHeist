@@ -2,7 +2,7 @@
 # Anime Health Check — runs hourly
 set -euo pipefail
 
-API="https://api.aniheist.com/api"
+API="https://api.yourdomain.com/api"
 LOG="/opt/anime-scraper/logs/anime-health.log"
 mkdir -p "$(dirname "$LOG")"
 

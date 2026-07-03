@@ -7,7 +7,7 @@ interface WatchPageProps {
   params: Promise<{ animeId: string; episode: string }>;
 }
 
-const API_BASE = process.env.API_INTERNAL_URL || "https://api.aniheist.com";
+const API_BASE = process.env.API_INTERNAL_URL || "https://api.yourdomain.com";
 
 export async function generateMetadata({ params }: WatchPageProps): Promise<Metadata> {
   const { animeId, episode } = await params;

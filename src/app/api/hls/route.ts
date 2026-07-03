@@ -8,7 +8,7 @@ export async function GET(req: NextRequest) {
   if (!url) return NextResponse.json({ error: "missing url" }, { status: 400 });
 
   try {
-    const proxyUrl = `https://api.aniheist.com/api/proxy/hls?url=${encodeURIComponent(url)}&referer=${encodeURIComponent(referer)}&origin=${encodeURIComponent(origin)}`;
+    const proxyUrl = `https://api.yourdomain.com/api/proxy/hls?url=${encodeURIComponent(url)}&referer=${encodeURIComponent(referer)}&origin=${encodeURIComponent(origin)}`;
     const resp = await fetch(proxyUrl, { signal: AbortSignal.timeout(20000) });
     if (!resp.ok) return new NextResponse(`upstream ${resp.status}`, { status: 502 });
 

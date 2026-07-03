@@ -6,12 +6,12 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "api.aniheist.com",
+        hostname: "api.yourdomain.com",
         pathname: "/**",
       },
       {
         protocol: "https",
-        hostname: "**.aniheist.com",
+        hostname: "**.yourdomain.com",
       },
     ],
     formats: ["image/avif", "image/webp"],
@@ -33,12 +33,12 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/blog",
-        destination: "https://blog.aniheist.com",
+        destination: "https://blog.yourdomain.com",
         permanent: true,
       },
       {
         source: "/api",
-        destination: "https://api.aniheist.com",
+        destination: "https://api.yourdomain.com",
         permanent: true,
       },
     ];
