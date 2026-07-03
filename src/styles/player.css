@@ -1,0 +1,43 @@
+.video-js {
+  --vjs-primary: var(--accent);
+}
+
+.vjs-default-skin {
+  background-color: var(--surface);
+}
+
+.vjs-big-play-button {
+  background-color: rgba(229, 9, 20, 0.9) !important;
+  border: none !important;
+  border-radius: 50% !important;
+  width: 70px !important;
+  height: 70px !important;
+  line-height: 70px !important;
+  font-size: 1.8em !important;
+}
+
+.vjs-big-play-button:hover {
+  background-color: var(--accent-hover) !important;
+}
+
+.vjs-control-bar {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent) !important;
+}
+
+.vjs-progress-holder {
+  border-radius: 2px;
+}
+
+.vjs-play-progress {
+  background: var(--accent) !important;
+}
+
+.vjs-volume-level {
+  background: var(--accent) !important;
+}
+
+.video-container {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+}
