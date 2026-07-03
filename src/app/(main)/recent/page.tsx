@@ -25,10 +25,9 @@ export default function RecentPage() {
   const { data, isLoading } = useQuery({
     queryKey: ["recent", page],
     queryFn: async () => {
-      const res = await fetch(`/api/cached/trending?page=${page}&per_page=${perPage}`);
+      const res = await fetch(`/api/cached/recent?page=${page}&per_page=${perPage}`);
       const json = await res.json();
-      const all = (json.status === "success" ? json.data : []) as TrendingAnime[];
-      return all.filter((a) => a.status === "RELEASING");
+      return (json.status === "success" ? json.data : []) as TrendingAnime[];
     },
     staleTime: 2 * 60 * 1000,
   });

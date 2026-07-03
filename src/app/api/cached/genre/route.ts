@@ -32,12 +32,12 @@ export async function GET(req: NextRequest) {
   }
 
   const cacheKey = `genre_${search.toLowerCase()}_p${page}_pp${perPage}`;
-  const cached = cacheGet<{ media: Record<string, unknown>[]; pageInfo: Record<string, unknown> }>(cacheKey, 30 * 24 * 60 * 60 * 1000);
+  const cached = cacheGet<{ media: Record<string, unknown>[]; pageInfo: Record<string, unknown> }>(cacheKey, 90 * 24 * 60 * 60 * 1000);
   if (cached) {
     const mapped = mapMedia(cached.media);
     return NextResponse.json(
       { status: "success", data: mapped, meta: { total: cached.pageInfo.total || 0, currentPage: cached.pageInfo.currentPage || page, lastPage: cached.pageInfo.lastPage || 1, hasNextPage: cached.pageInfo.hasNextPage || false } },
-      { headers: { "Cache-Control": "public, s-maxage=2592000, stale-while-revalidate=86400" } }
+      { headers: { "Cache-Control": "public, s-maxage=7776000, stale-while-revalidate=86400" } }
     );
   }
 
@@ -57,7 +57,7 @@ export async function GET(req: NextRequest) {
     const mapped = mapMedia(media);
     return NextResponse.json(
       { status: "success", data: mapped, meta: { total: pageInfo.total || 0, currentPage: pageInfo.currentPage || page, lastPage: pageInfo.lastPage || 1, hasNextPage: pageInfo.hasNextPage || false } },
-      { headers: { "Cache-Control": "public, s-maxage=2592000, stale-while-revalidate=86400" } }
+      { headers: { "Cache-Control": "public, s-maxage=7776000, stale-while-revalidate=86400" } }
     );
   } catch {
     return NextResponse.json({ status: "error", data: [], meta: { total: 0 } }, { status: 502 });

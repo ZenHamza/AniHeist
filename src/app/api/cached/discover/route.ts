@@ -4,10 +4,10 @@ import { cacheGet, cacheSet } from "@/lib/disk-cache";
 const ANILIST_API = "https://graphql.anilist.co";
 
 const DISCOVER_QUERY = `
-query ($page: Int, $perPage: Int, $sort: [MediaSort], $status: MediaStatus, $format: MediaFormat, $season: MediaSeason, $seasonYear: Int) {
+query ($page: Int, $perPage: Int, $sort: [MediaSort], $status: MediaStatus, $format: MediaFormat, $season: MediaSeason, $seasonYear: Int, $genre_in: [String]) {
   Page(page: $page, perPage: $perPage) {
     pageInfo { total currentPage lastPage hasNextPage }
-    media(type: ANIME, sort: $sort, status: $status, format: $format, season: $season, seasonYear: $seasonYear) {
+    media(type: ANIME, sort: $sort, status: $status, format: $format, season: $season, seasonYear: $seasonYear, genre_in: $genre_in) {
       id
       title { romaji english }
       coverImage { large extraLarge }
@@ -35,6 +35,7 @@ interface Params {
   format: string;
   season: string;
   seasonYear: string;
+  genres: string[];
   page: number;
   perPage: number;
 }
@@ -46,13 +47,15 @@ function parseParams(req: NextRequest): Params {
     format: req.nextUrl.searchParams.get("format") || "",
     season: req.nextUrl.searchParams.get("season") || "",
     seasonYear: req.nextUrl.searchParams.get("season_year") || "",
+    genres: req.nextUrl.searchParams.getAll("genres").flatMap((g) => g.split(",").map((s) => s.trim()).filter(Boolean)),
     page: parseInt(req.nextUrl.searchParams.get("page") || "1", 10),
     perPage: Math.min(parseInt(req.nextUrl.searchParams.get("per_page") || "20", 10), 50),
   };
 }
 
 function makeCacheKey(p: Params): string {
-  return `discover_${p.sort}_${p.status}_${p.format}_${p.season}_${p.seasonYear}_p${p.page}_pp${p.perPage}`;
+  const g = p.genres.length ? `_g${p.genres.sort().join("+")}` : "";
+  return `discover_${p.sort}_${p.status}_${p.format}_${p.season}_${p.seasonYear}${g}_p${p.page}_pp${p.perPage}`;
 }
 
 function mapMedia(media: Record<string, unknown>[]) {
@@ -81,8 +84,8 @@ function mapMedia(media: Record<string, unknown>[]) {
 }
 
 const TTL = {
-  lists: 30 * 24 * 60 * 60 * 1000,   // 30 days for browse lists
-  static: 30 * 24 * 60 * 60 * 1000,  // 30 days for filtered/static data
+  lists: 90 * 24 * 60 * 60 * 1000,   // 30 days for browse lists
+  static: 90 * 24 * 60 * 60 * 1000,  // 30 days for filtered/static data
 };
 
 export async function GET(req: NextRequest) {
@@ -97,7 +100,7 @@ export async function GET(req: NextRequest) {
     const mapped = mapMedia(cached.media);
     return NextResponse.json(
       { status: "success", data: mapped, meta: { total: cached.pageInfo.total, page: p.page, hasNextPage: cached.pageInfo.hasNextPage } },
-      { headers: { "Cache-Control": "public, s-maxage=2592000, stale-while-revalidate=86400" } }
+      { headers: { "Cache-Control": "public, s-maxage=7776000, stale-while-revalidate=86400" } }
     );
   }
 
@@ -107,6 +110,7 @@ export async function GET(req: NextRequest) {
   if (p.format) variables.format = p.format;
   if (p.season) variables.season = p.season;
   if (p.seasonYear) variables.seasonYear = parseInt(p.seasonYear, 10);
+  if (p.genres.length > 0) variables.genre_in = p.genres;
 
   try {
     const res = await fetch(ANILIST_API, {
@@ -125,7 +129,7 @@ export async function GET(req: NextRequest) {
     const mapped = mapMedia(media);
     return NextResponse.json(
       { status: "success", data: mapped, meta: { total: pageInfo.total || 0, page: p.page, hasNextPage: pageInfo.hasNextPage || false } },
-      { headers: { "Cache-Control": "public, s-maxage=2592000, stale-while-revalidate=86400" } }
+      { headers: { "Cache-Control": "public, s-maxage=7776000, stale-while-revalidate=86400" } }
     );
   } catch {
     return NextResponse.json({ status: "error", data: [], meta: { total: 0 } }, { status: 502 });

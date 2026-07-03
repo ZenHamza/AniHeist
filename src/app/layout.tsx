@@ -72,18 +72,30 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
+      suppressHydrationWarning
     >
       <head>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#0a0a0a" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <link rel="apple-touch-icon" href="/icons/icon-192.png" />
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+          src="https://www.googletagmanager.com/gtag/js?id=G-PN045E6DYT"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
           {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-XXXXXXXXXX');`}
+gtag('config', 'G-PN045E6DYT');`}
+        </Script>
+        <Script id="theme-init" strategy="beforeInteractive">
+          {`(function(){try{var t=JSON.parse(localStorage.getItem('aniheist-ui')||'{}').state?.theme||'dark';document.documentElement.classList.remove('dark','light');document.documentElement.classList.add(t)}catch(e){}})()`}
+        </Script>
+        <Script id="sw-register" strategy="afterInteractive">
+          {`if('serviceWorker'in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js')})}`}
         </Script>
       </head>
       <body className="min-h-full bg-background text-foreground">

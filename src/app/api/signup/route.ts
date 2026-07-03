@@ -19,7 +19,7 @@ export async function POST(req: Request) {
       );
     }
 
-    const apiUrl = process.env.API_INTERNAL_URL || "https://api.yourdomain.com";
+    const apiUrl = process.env.API_INTERNAL_URL || "https://api.aniheist.com";
     const res = await fetch(`${apiUrl}/api/auth/signup`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },

@@ -7,7 +7,7 @@ export async function GET(
   const { path } = await params;
   const searchParams = req.nextUrl.searchParams.toString();
   const apiPath = path.join("/");
-  const apiUrl = process.env.API_INTERNAL_URL || "https://api.yourdomain.com";
+  const apiUrl = process.env.API_INTERNAL_URL || "https://api.aniheist.com";
   const url = `${apiUrl}/${apiPath}${searchParams ? `?${searchParams}` : ""}`;
 
   try {
